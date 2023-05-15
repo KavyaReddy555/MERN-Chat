@@ -24,6 +24,7 @@
     "mongoose": "^6.1.8",
     "node-sass": "^8.0.0",
     "nodemon": "^2.0.15",
-    "validator": "^13.7.0"
+    "validator": "^13.7.0",
+    "socket.io": "^4.4.1"
   }
 }
