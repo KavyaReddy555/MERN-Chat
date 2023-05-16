@@ -30,6 +30,8 @@ const Messenger = () => {
   const socket = useRef();
 
   const currentDomain = window.location.hostname.split(":")[0];
+  const webSocketProtocol =
+    window.location.protocol === "http:" ? "ws://" : "wss://";
 
   const {
     friends,
@@ -49,8 +51,8 @@ const Messenger = () => {
   const [typingMessage, setTypingMessage] = useState("");
 
   useEffect(() => {
-    console.log("ws://" + currentDomain + ":8000");
-    socket.current = io("ws://" + currentDomain + ":8000");
+    console.log(webSocketProtocol + currentDomain + ":8000");
+    socket.current = io(webSocketProtocol + currentDomain + ":8000");
     socket.current.on("getMessage", (data) => {
       setSocketMessage(data);
     });
