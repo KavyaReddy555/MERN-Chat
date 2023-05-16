@@ -6,3 +6,9 @@
   from = "/api/*"
   to = "https://mern-chatapp-cvds.onrender.com//api/:splat"
   status = 200
+
+  # Redirect with a 200
+[[redirects]]
+  from = "/*"
+ to = "/"
+ status = 200
