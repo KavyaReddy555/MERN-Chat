@@ -29,6 +29,8 @@ const Messenger = () => {
   const scrollRef = useRef();
   const socket = useRef();
 
+  const currentDomain = window.location.hostname.split(":")[0];
+
   const {
     friends,
     message,
@@ -47,7 +49,8 @@ const Messenger = () => {
   const [typingMessage, setTypingMessage] = useState("");
 
   useEffect(() => {
-    socket.current = io("ws://localhost:8000");
+    console.log("ws://" + currentDomain + ":8000");
+    socket.current = io("ws://" + currentDomain + ":8000");
     socket.current.on("getMessage", (data) => {
       setSocketMessage(data);
     });
