@@ -12,6 +12,7 @@ const io = require("socket.io")(server, {
         "Access-Control-Allow-Methods": "GET, POST",
         "Access-Control-Allow-Headers": "my-custom-header",
         "Access-Control-Allow-Credentials": true,
+        "Referrer-Policy": "no-referrer",
       });
       res.end();
     },
