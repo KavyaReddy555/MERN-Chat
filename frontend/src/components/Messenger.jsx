@@ -53,7 +53,9 @@ const Messenger = () => {
   useEffect(() => {
     console.log(webSocketProtocol + currentDomain + ":8000");
     //socket.current = io(webSocketProtocol + currentDomain + ":8000");
-    socket.current = io("wss://mern-chatapp-cvds.onrender.com:8000");
+    socket.current = io("wss://mern-chatapp-cvds.onrender.com:8000", {
+      withCredentials: true,
+    });
 
     socket.current.on("getMessage", (data) => {
       setSocketMessage(data);

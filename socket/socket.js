@@ -1,18 +1,19 @@
 const http = require("http");
-var cors = require("cors");
+const cors = require("cors");
 
 const server = http.createServer();
 const io = require("socket.io")(server, {
   cors: {
-    origins: ["*"],
+    origin: "*",
     methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
+    allowedHeaders: ["Origin, X-Requested-With, Content-Type, Accept"],
     credentials: true,
     handlePreFlightRequest: (req, res) => {
       res.writeHead(200, {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST",
-        "Access-Control-Allow-Headers": "my-custom-header",
+        "Access-Control-Allow-Headers":
+          "Origin, X-Requested-With, Content-Type, Accept",
         "Access-Control-Allow-Credentials": true,
         "Referrer-Policy": "no-referrer",
       });
