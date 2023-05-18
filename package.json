@@ -2,7 +2,6 @@
   "name": "messenger",
   "version": "1.0.0",
   "description": "",
-  // "main": "index.js",
   "scripts": {
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend",
