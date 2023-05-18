@@ -13,7 +13,6 @@ dotenv.config({
 });
 
 const app = express();
-const server = http.createServer(app);
 
 app.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -39,6 +38,8 @@ app.get("/", (req, res) => {
 
 databaseConnect();
 /************************ */
+const server = http.createServer(app);
+
 const io = require("socket.io")(server, {
   cors: {
     origin: "*",
