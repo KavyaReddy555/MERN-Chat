@@ -1,8 +1,8 @@
-//const http = require("http");
-//const cors = require("cors");
+const http = require("http");
+const cors = require("cors");
 
-//const server = http.createServer();
-const io = require("socket.io")(8000, {
+const server = http.createServer();
+const io = require("socket.io")(server, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
@@ -21,9 +21,9 @@ const io = require("socket.io")(8000, {
     },
   },
 });
-// server.listen(8000, () => {
-//   console.log("Server listening on port 8000");
-// });
+server.listen(8000, () => {
+  console.log("Server listening on port 8000");
+});
 
 let users = [];
 const addUser = (userId, socketId, userInfo) => {
