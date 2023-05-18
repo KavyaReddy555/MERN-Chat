@@ -41,7 +41,7 @@ databaseConnect();
 /************************ */
 const io = require("socket.io")(server, {
   cors: {
-    origins: "*:*",
+    origin: "*",
     methods: ["GET", "POST"],
     allowedHeaders: ["Origin, X-Requested-With, Content-Type, Accept"],
     credentials: true,
@@ -57,10 +57,6 @@ const io = require("socket.io")(server, {
       res.end();
     },
   },
-});
-
-server.listen(8000, () => {
-  console.log("Server listening on port 8000");
 });
 
 let users = [];
@@ -146,6 +142,10 @@ io.on("connection", (socket) => {
   });
 });
 /**************************/
+
+server.listen(8000, () => {
+  console.log("Server listening on port 8000");
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
