@@ -14,18 +14,19 @@ dotenv.config({
 
 const app = express();
 
-app.use(function(req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "DELETE, PUT, GET, POST");
-  //  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.setHeader("Referrer-Policy", "no-referrer");
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Access-Control-Allow-Methods", "DELETE, PUT, GET, POST");
+//   //  res.setHeader("Access-Control-Allow-Credentials", "true");
+//   res.setHeader(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   res.setHeader("Referrer-Policy", "no-referrer");
+//   next();
+// });
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use("/api/messenger", authRouter);
