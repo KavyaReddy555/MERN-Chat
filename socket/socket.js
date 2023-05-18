@@ -21,8 +21,8 @@ const io = require("socket.io")(server, {
     },
   },
 });
-server.listen(8000, () => {
-  console.log("Server listening on port 8000");
+server.listen(7004, () => {
+  console.log("Server listening on port 7004");
 });
 
 let users = [];
