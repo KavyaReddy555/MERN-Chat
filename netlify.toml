@@ -9,6 +9,12 @@
 
 # Redirect with a 200
 [[redirects]]
+ from = "/socket.io/*"
+ to = "https://mern-chatapp-cvds.onrender.com/socket.io/:splat"
+ status = 200
+
+# Redirect with a 200
+[[redirects]]
  from = "/*"
  to = "/"
  status = 200

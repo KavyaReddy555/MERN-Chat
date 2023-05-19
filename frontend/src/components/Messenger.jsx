@@ -32,6 +32,9 @@ const Messenger = () => {
   const currentDomain = window.location.hostname.split(":")[0];
   const webSocketProtocol =
     window.location.protocol === "http:" ? "ws://" : "wss://";
+  console.log(webSocketProtocol + currentDomain + ":5000");
+  const SOCKET_IO_URL =
+    currentDomain === "localhost" ? "localhost:5000" : currentDomain;
 
   const {
     friends,
@@ -51,12 +54,7 @@ const Messenger = () => {
   const [typingMessage, setTypingMessage] = useState("");
 
   useEffect(() => {
-    console.log(webSocketProtocol + currentDomain + ":5000");
-    //socket.current = io(webSocketProtocol + currentDomain + ":5000");
-    socket.current = io("wss://mern-chatapp-cvds.onrender.com/");
-    // socket.current = io("wss://mern-chatapp-cvds.onrender.com:8000", {
-    //   withCredentials: true,
-    // });
+    socket.current = io(webSocketProtocol + SOCKET_IO_URL);
 
     socket.current.on("connect_error", (err) => {
       console.log(`connect_error due to ${err.message}`);
