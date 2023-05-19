@@ -1,10 +1,16 @@
 [build]
   command = "npm install --prefix frontend && npm run build --prefix frontend"
-  
+
+# Redirect with a 200
+[[redirects]]
+ from = "/api/*"
+ to = "https://mern-chatapp-cvds.onrender.com/api/:splat"
+ status = 200
+
 # Redirect with a 200
 [[redirects]]
  from = "/socket.io/*"
- to = "https://mern-chatapp-cvds.onrender.com:8000/socket.io/:splat"
+ to = "https://mern-chatapp-cvds.onrender.com/socket.io/:splat"
  status = 200
 
 # Redirect with a 200
