@@ -146,7 +146,7 @@ io.on("connection", (socket) => {
 /**************************/
 
 server.listen(5000, () => {
-  console.log("Server listening on port 8000");
+  console.log("Server listening on port 5 000");
 });
 
 // app.listen(PORT, () => {
